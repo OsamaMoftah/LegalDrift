@@ -95,12 +95,8 @@ class DriftHistory:
             )
             """
         )
-        conn.execute(
-            "CREATE INDEX IF NOT EXISTS idx_timestamp ON drift_records(timestamp)"
-        )
-        conn.execute(
-            "CREATE INDEX IF NOT EXISTS idx_baseline ON drift_records(baseline_id)"
-        )
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_timestamp ON drift_records(timestamp)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_baseline ON drift_records(baseline_id)")
         conn.commit()
         conn.close()
 
@@ -152,7 +148,9 @@ class DriftHistory:
 
         logger.info(
             "Saved drift record: %s vs %s (drift=%s)",
-            baseline_id, current_id, result.drift_detected
+            baseline_id,
+            current_id,
+            result.drift_detected,
         )
         return record
 

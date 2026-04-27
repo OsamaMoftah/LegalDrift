@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class DriftResult:
     """Result of drift detection analysis."""
+
     drift_detected: bool
     p_value: float
     confidence: float
@@ -47,10 +48,7 @@ class DriftDetector:
     """
 
     def __init__(
-        self,
-        threshold: float = 0.05,
-        n_permutations: int = 200,
-        rng: np.random.Generator = None
+        self, threshold: float = 0.05, n_permutations: int = 200, rng: np.random.Generator = None
     ):
         """Initialize detector.
 
@@ -110,7 +108,9 @@ class DriftDetector:
 
         logger.info(
             "Drift detection complete: drift=%s, p=%.4f, severity=%.3f",
-            drift_detected, combined_p, severity
+            drift_detected,
+            combined_p,
+            severity,
         )
         return result
 
@@ -153,9 +153,7 @@ class DriftDetector:
         stats_list = []
         n_dims = X.shape[1]
         for dim in range(n_dims):
-            stat, p = stats.mannwhitneyu(
-                X[:, dim], Y[:, dim], alternative="two-sided"
-            )
+            stat, p = stats.mannwhitneyu(X[:, dim], Y[:, dim], alternative="two-sided")
             p_values.append(p)
             stats_list.append(stat)
         _, combined_p = self._fisher_combine(p_values)
@@ -197,6 +195,7 @@ class DriftDetector:
         """Wasserstein distance as drift severity measure."""
         try:
             from scipy.stats import wasserstein_distance
+
             return wasserstein_distance(X[:, 0], Y[:, 0])
         except ImportError:
             return float(abs(np.mean(X) - np.mean(Y)))

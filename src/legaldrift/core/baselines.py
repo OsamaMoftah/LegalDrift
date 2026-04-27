@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class BaselineResult:
     """Result from a baseline drift detector."""
+
     drift_detected: bool
     p_value: float
     confidence: float
@@ -52,13 +53,17 @@ class ADWIN:
 
         window_means = []
         for i in range(max(1, n // 4), n):
-            window = combined[max(0, i - 20):i]
+            window = combined[max(0, i - 20) : i]
             window_means.append(np.mean(window))
 
         if len(window_means) < 2:
             return BaselineResult(
-                drift_detected=False, p_value=1.0, confidence=0.0,
-                severity=0.0, method_name="ADWIN", sample_count=n
+                drift_detected=False,
+                p_value=1.0,
+                confidence=0.0,
+                severity=0.0,
+                method_name="ADWIN",
+                sample_count=n,
             )
 
         variance = np.var(window_means)
@@ -75,7 +80,7 @@ class ADWIN:
             confidence=confidence,
             severity=severity,
             method_name="ADWIN",
-            sample_count=n
+            sample_count=n,
         )
 
 
@@ -90,7 +95,7 @@ class DDM:
         self,
         warning_level: float = 2.0,
         drift_level: float = 3.0,
-        rng: Optional[np.random.Generator] = None
+        rng: Optional[np.random.Generator] = None,
     ):
         """Initialize DDM."""
         self.warning_level = warning_level
@@ -127,7 +132,7 @@ class DDM:
             confidence=confidence,
             severity=abs(severity),
             method_name="DDM",
-            sample_count=len(current)
+            sample_count=len(current),
         )
 
 
@@ -155,8 +160,12 @@ class HDP:
 
         if n_topics < 1:
             return BaselineResult(
-                drift_detected=False, p_value=0.5, confidence=0.5,
-                severity=0.0, method_name="HDP", sample_count=len(current)
+                drift_detected=False,
+                p_value=0.5,
+                confidence=0.5,
+                severity=0.0,
+                method_name="HDP",
+                sample_count=len(current),
             )
 
         kmeans_b = KMeans(n_clusters=n_topics, random_state=42, n_init=10)
@@ -186,5 +195,5 @@ class HDP:
             confidence=confidence,
             severity=abs(severity),
             method_name="HDP",
-            sample_count=len(current)
+            sample_count=len(current),
         )

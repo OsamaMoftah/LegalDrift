@@ -19,17 +19,32 @@ class EmbeddingEngine:
     """
 
     LEGAL_TERMS = {
-        'gdpr', 'privacy', 'consent', 'data', 'protection', 'automated',
-        'decision', 'transparency', 'obligation', 'ai', 'high_risk',
-        'compensation', 'termination', 'confidentiality', 'non-compete',
-        'liability', 'indemnification', 'warranty', 'jurisdiction'
+        "gdpr",
+        "privacy",
+        "consent",
+        "data",
+        "protection",
+        "automated",
+        "decision",
+        "transparency",
+        "obligation",
+        "ai",
+        "high_risk",
+        "compensation",
+        "termination",
+        "confidentiality",
+        "non-compete",
+        "liability",
+        "indemnification",
+        "warranty",
+        "jurisdiction",
     }
 
     def __init__(
         self,
         use_legal_bert: bool = True,
         embedding_dim: int = 384,
-        rng: Optional[np.random.Generator] = None
+        rng: Optional[np.random.Generator] = None,
     ):
         """Initialize the embedding engine.
 
@@ -50,6 +65,7 @@ class EmbeddingEngine:
         """Initialize Legal-BERT model."""
         try:
             from sentence_transformers import SentenceTransformer
+
             logger.info("Loading Legal-BERT: nlpaueb/legal-bert-base-uncased")
             self.model = SentenceTransformer("nlpaueb/legal-bert-base-uncased")
             logger.info("Legal-BERT loaded successfully")
@@ -83,7 +99,7 @@ class EmbeddingEngine:
             batch_size=batch_size,
             show_progress_bar=len(texts) > 50,
             convert_to_numpy=True,
-            normalize_embeddings=True
+            normalize_embeddings=True,
         )
         return embeddings.astype(np.float32)
 

@@ -45,7 +45,17 @@ class TestCLIDetect:
     def test_detect_json_output(self, sample_contracts):
         v1, v2 = sample_contracts
         result = subprocess.run(
-            [PYTHON, "-m", "legaldrift.cli", "--no-legal-bert", "detect", v1, v2, "--output", "json"],
+            [
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "detect",
+                v1,
+                v2,
+                "--output",
+                "json",
+            ],
             capture_output=True,
             text=True,
         )
@@ -58,11 +68,20 @@ class TestCLIDetect:
         history_path = tmp_path / "history.json"
         result = subprocess.run(
             [
-                PYTHON, "-m", "legaldrift.cli", "--no-legal-bert",
-                "detect", v1, v2,
-                "--history", str(history_path),
-                "--notes", "test run",
-                "--tags", "gdpr", "contract",
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "detect",
+                v1,
+                v2,
+                "--history",
+                str(history_path),
+                "--notes",
+                "test run",
+                "--tags",
+                "gdpr",
+                "contract",
             ],
             capture_output=True,
             text=True,
@@ -99,7 +118,18 @@ class TestCLIAnalyze:
     def test_analyze_jurisdiction(self, sample_contracts):
         v1, _ = sample_contracts
         result = subprocess.run(
-            [PYTHON, "-m", "legaldrift.cli", "--no-legal-bert", "-j", "EU", "analyze", v1, "--output", "json"],
+            [
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "-j",
+                "EU",
+                "analyze",
+                v1,
+                "--output",
+                "json",
+            ],
             capture_output=True,
             text=True,
         )
@@ -121,7 +151,17 @@ class TestCLIChunks:
     def test_chunks_json_output(self, sample_contracts):
         v1, v2 = sample_contracts
         result = subprocess.run(
-            [PYTHON, "-m", "legaldrift.cli", "--no-legal-bert", "chunks", v1, v2, "--output", "json"],
+            [
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "chunks",
+                v1,
+                v2,
+                "--output",
+                "json",
+            ],
             capture_output=True,
             text=True,
         )
@@ -145,7 +185,17 @@ class TestCLIHistory:
         hist = tmp_path / "hist.json"
         # First, save a detection
         subprocess.run(
-            [PYTHON, "-m", "legaldrift.cli", "--no-legal-bert", "detect", v1, v2, "--history", str(hist)],
+            [
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "detect",
+                v1,
+                v2,
+                "--history",
+                str(hist),
+            ],
             capture_output=True,
             text=True,
         )
@@ -174,7 +224,17 @@ class TestCLICompare:
     def test_compare_json(self, sample_contracts):
         v1, v2 = sample_contracts
         result = subprocess.run(
-            [PYTHON, "-m", "legaldrift.cli", "--no-legal-bert", "compare", v1, v2, "--output", "json"],
+            [
+                PYTHON,
+                "-m",
+                "legaldrift.cli",
+                "--no-legal-bert",
+                "compare",
+                v1,
+                v2,
+                "--output",
+                "json",
+            ],
             capture_output=True,
             text=True,
         )
@@ -190,4 +250,8 @@ class TestCLIGeneral:
             capture_output=True,
             text=True,
         )
-        assert result.returncode != 0 or "usage" in result.stdout.lower() or "usage" in result.stderr.lower()
+        assert (
+            result.returncode != 0
+            or "usage" in result.stdout.lower()
+            or "usage" in result.stderr.lower()
+        )

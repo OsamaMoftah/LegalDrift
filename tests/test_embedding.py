@@ -36,8 +36,12 @@ class TestEmbeddingEngine:
         assert not np.allclose(emb_legal, emb_generic, atol=0.1)
 
     def test_hash_reproducibility(self):
-        engine1 = EmbeddingEngine(use_legal_bert=False, embedding_dim=64, rng=np.random.default_rng(42))
-        engine2 = EmbeddingEngine(use_legal_bert=False, embedding_dim=64, rng=np.random.default_rng(42))
+        engine1 = EmbeddingEngine(
+            use_legal_bert=False, embedding_dim=64, rng=np.random.default_rng(42)
+        )
+        engine2 = EmbeddingEngine(
+            use_legal_bert=False, embedding_dim=64, rng=np.random.default_rng(42)
+        )
         text = ["confidentiality and non-compete liability."]
         emb1 = engine1.encode(text)
         emb2 = engine2.encode(text)

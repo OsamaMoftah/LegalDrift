@@ -62,7 +62,9 @@ class LegalDocument:
             "source_reliability": {
                 "score": self.source_reliability.score if self.source_reliability else 0.5,
                 "verified": self.source_reliability.verified if self.source_reliability else False,
-                "source_type": self.source_reliability.source_type if self.source_reliability else "unknown",
+                "source_type": (
+                    self.source_reliability.source_type if self.source_reliability else "unknown"
+                ),
             },
             "text_preview": self.text[:500] + "..." if len(self.text) > 500 else self.text,
         }

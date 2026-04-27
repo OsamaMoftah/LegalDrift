@@ -16,8 +16,7 @@ from legaldrift.core.chunker import chunk_by_sections, align_chunks
 from legaldrift.core.history import DriftHistory
 
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -26,10 +25,7 @@ def load_document(path: Path, jurisdiction: str = "US") -> LegalDocument:
     """Load a document from file."""
     text = path.read_text(encoding="utf-8")
     return LegalDocument(
-        text=text,
-        document_id=path.stem,
-        jurisdiction=jurisdiction,
-        metadata={"source": str(path)}
+        text=text, document_id=path.stem, jurisdiction=jurisdiction, metadata={"source": str(path)}
     )
 
 
@@ -155,7 +151,7 @@ def compare_baselines_command(args):
                     "p_value": hdp_result.p_value,
                     "severity": hdp_result.severity,
                 },
-            }
+            },
         }
         print(json.dumps(result, indent=2))
     else:
@@ -195,24 +191,28 @@ def chunks_command(args):
 
     for c1, c2 in aligned:
         if c1 is None:
-            results.append({
-                "status": "NEW",
-                "section": c2.metadata.get("header", f"Section {c2.chunk_index}"),
-                "drift_detected": True,
-                "p_value": 0.0,
-                "severity": 1.0,
-                "message": "Added in current document",
-            })
+            results.append(
+                {
+                    "status": "NEW",
+                    "section": c2.metadata.get("header", f"Section {c2.chunk_index}"),
+                    "drift_detected": True,
+                    "p_value": 0.0,
+                    "severity": 1.0,
+                    "message": "Added in current document",
+                }
+            )
             continue
         if c2 is None:
-            results.append({
-                "status": "DELETED",
-                "section": c1.metadata.get("header", f"Section {c1.chunk_index}"),
-                "drift_detected": True,
-                "p_value": 0.0,
-                "severity": 1.0,
-                "message": "Removed in current document",
-            })
+            results.append(
+                {
+                    "status": "DELETED",
+                    "section": c1.metadata.get("header", f"Section {c1.chunk_index}"),
+                    "drift_detected": True,
+                    "p_value": 0.0,
+                    "severity": 1.0,
+                    "message": "Removed in current document",
+                }
+            )
             continue
 
         e1 = engine.encode([c1.text])
@@ -220,14 +220,16 @@ def chunks_command(args):
         result = detector.detect(e1, e2)
 
         header = c1.metadata.get("header", f"Section {c1.chunk_index}")
-        results.append({
-            "status": "DRIFT" if result.drift_detected else "OK",
-            "section": header,
-            "drift_detected": result.drift_detected,
-            "p_value": result.p_value,
-            "severity": result.severity,
-            "effect_size": result.effect_size,
-        })
+        results.append(
+            {
+                "status": "DRIFT" if result.drift_detected else "OK",
+                "section": header,
+                "drift_detected": result.drift_detected,
+                "p_value": result.p_value,
+                "severity": result.severity,
+                "effect_size": result.effect_size,
+            }
+        )
 
     if args.output == "json":
         print(json.dumps(results, indent=2))
@@ -279,14 +281,13 @@ def main():
     )
     parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
     parser.add_argument(
-        "--no-legal-bert",
-        action="store_true",
-        help="Disable Legal-BERT (use hash embeddings)"
+        "--no-legal-bert", action="store_true", help="Disable Legal-BERT (use hash embeddings)"
     )
     parser.add_argument(
-        "--jurisdiction", "-j",
+        "--jurisdiction",
+        "-j",
         default="US",
-        help="Default legal jurisdiction (e.g., US, EU, DE, UK)"
+        help="Default legal jurisdiction (e.g., US, EU, DE, UK)",
     )
 
     subparsers = parser.add_subparsers(dest="command", help="Command to run")
@@ -324,7 +325,9 @@ def main():
     history_parser = subparsers.add_parser("history", help="Query drift history")
     history_parser.add_argument("--path", default="drift_history.json", help="History file path")
     history_parser.add_argument("--baseline", help="Filter by baseline document ID")
-    history_parser.add_argument("--drift-only", action="store_true", help="Show only drift detections")
+    history_parser.add_argument(
+        "--drift-only", action="store_true", help="Show only drift detections"
+    )
     history_parser.add_argument("--limit", type=int, default=50, help="Max records to show")
     history_parser.add_argument("--output", choices=["text", "json"], default="text")
 

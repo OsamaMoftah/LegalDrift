@@ -16,46 +16,46 @@ class LegalConceptExtractor:
     """Extracts legal concepts from document text using regex patterns."""
 
     PATTERNS = {
-        'automated_decision': [
+        "automated_decision": [
             r"automated.{0,20}decision",
             r"algorithmic.{0,20}decision",
             r"automatic.{0,20}processing",
             r"ai.{0,20}decision",
         ],
-        'data_protection': [
+        "data_protection": [
             r"data protection",
             r"privacy",
             r"gdpr",
             r"personal.{0,10}data",
         ],
-        'transparency': [
+        "transparency": [
             r"transparency",
             r"explainability",
             r"explainable.{0,10}ai",
         ],
-        'high_risk': [
+        "high_risk": [
             r"high.{0,10}risk",
             r"critical.{0,10}system",
             r"conformity.{0,10}assessment",
         ],
-        'human_oversight': [
+        "human_oversight": [
             r"human.{0,10}oversight",
             r"human.{0,10}supervision",
             r"meaningful.{0,10}human.{0,10}control",
         ],
-        'obligation': [
+        "obligation": [
             r"shall",
             r"must",
             r"is required",
             r" obligated",
         ],
-        'permission': [
+        "permission": [
             r"may",
             r"is permitted",
             r"is allowed",
             r"has the right",
         ],
-        'prohibition': [
+        "prohibition": [
             r"shall not",
             r"must not",
             r"is prohibited",
@@ -67,9 +67,7 @@ class LegalConceptExtractor:
         """Initialize the extractor with compiled patterns."""
         self.compiled_patterns: Dict[str, List[re.Pattern]] = {}
         for concept, pattern_list in self.PATTERNS.items():
-            self.compiled_patterns[concept] = [
-                re.compile(p, re.IGNORECASE) for p in pattern_list
-            ]
+            self.compiled_patterns[concept] = [re.compile(p, re.IGNORECASE) for p in pattern_list]
 
     def extract(self, documents: List[LegalDocument]) -> Set[str]:
         """Extract concepts from a list of documents.

@@ -1,0 +1,29 @@
+This AGREEMENT (the "Agreement") is entered into as of January 1, 2024 (the "Effective Date"), by and between Acme Corp ("Company") and Beta LLC ("Client").
+
+1. DEFINITIONS
+"Confidential Information" means any and all non-public, proprietary, or confidential information disclosed by either party.
+"Services" means the software development and consulting services described in Exhibit A.
+
+2. SERVICES
+Company shall provide the Services in a professional and workmanlike manner. Company shall comply with all applicable laws and regulations, including the General Data Protection Regulation (GDPR).
+
+3. PAYMENT
+Client shall pay Company the fees set forth in Exhibit B within thirty (30) days of invoice. Late payments shall incur a fee of 1.5% per month.
+
+4. CONFIDENTIALITY
+Each party agrees to hold all Confidential Information in strict confidence and shall not disclose such information to any third party without the prior written consent of the disclosing party. This obligation shall survive termination of this Agreement for a period of five (5) years.
+
+5. TERM AND TERMINATION
+This Agreement shall commence on the Effective Date and continue for a period of one (1) year, unless earlier terminated by either party with sixty (60) days written notice. Either party may terminate this Agreement immediately for material breach.
+
+6. INTELLECTUAL PROPERTY
+Company retains all rights, title, and interest in and to its pre-existing intellectual property. Client shall not reverse engineer, decompile, or disassemble any software provided by Company.
+
+7. LIMITATION OF LIABILITY
+Company's total liability under this Agreement shall not exceed the total amount paid by Client to Company in the twelve (12) months preceding the claim. Neither party shall be liable for indirect, incidental, or consequential damages.
+
+8. GOVERNING LAW
+This Agreement shall be governed by the laws of the State of California, without regard to conflict of law principles.
+
+9. MISCELLANEOUS
+This Agreement constitutes the entire agreement between the parties. No amendment shall be effective unless in writing signed by both parties.

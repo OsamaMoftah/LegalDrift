@@ -1,0 +1,29 @@
+This AGREEMENT (the "Agreement") is entered into as of January 1, 2024 (the "Effective Date"), by and between Acme Corp ("Company") and Beta LLC ("Client").
+
+1. DEFINITIONS
+"Confidential Information" means any and all non-public, proprietary, or confidential information disclosed by either party, including personal data as defined under GDPR and the EU Artificial Intelligence Act.
+"Services" means the software development, consulting, and AI model training services described in Exhibit A.
+
+2. SERVICES
+Company shall provide the Services in a professional and workmanlike manner. Company shall comply with all applicable laws and regulations, including the General Data Protection Regulation (GDPR) and the EU Artificial Intelligence Act. For high-risk AI systems, Company shall perform a conformity assessment and maintain meaningful human oversight.
+
+3. PAYMENT
+Client shall pay Company the fees set forth in Exhibit B within fifteen (15) days of invoice. Late payments shall incur a fee of 2.0% per month. All payments must be made in Euros for EU-based engagements.
+
+4. CONFIDENTIALITY
+Each party agrees to hold all Confidential Information in strict confidence and shall not disclose such information to any third party without the prior written consent of the disclosing party. This obligation shall survive termination of this Agreement for a period of three (3) years.
+
+5. TERM AND TERMINATION
+This Agreement shall commence on the Effective Date and continue for a period of two (2) years, unless earlier terminated by either party with thirty (30) days written notice. Either party may terminate this Agreement immediately for material breach. Upon termination, Client shall return or destroy all Confidential Information within ten (10) days.
+
+6. INTELLECTUAL PROPERTY
+Company retains all rights, title, and interest in and to its pre-existing intellectual property. Client shall not reverse engineer, decompile, or disassemble any software provided by Company. Client is granted a limited, non-exclusive, non-transferable license to use the software solely for its internal business purposes.
+
+7. LIMITATION OF LIABILITY
+Company's total liability under this Agreement shall not exceed the total amount paid by Client to Company in the six (6) months preceding the claim. Neither party shall be liable for indirect, incidental, consequential, or punitive damages. Company shall indemnify Client against third-party claims arising from Company's infringement of intellectual property rights.
+
+8. GOVERNING LAW
+This Agreement shall be governed by the laws of the European Union and the member state of Germany, without regard to conflict of law principles. Any disputes shall be resolved through binding arbitration in Frankfurt.
+
+9. MISCELLANEOUS
+This Agreement constitutes the entire agreement between the parties. No amendment shall be effective unless in writing signed by both parties. Client may not assign this Agreement without Company's prior written consent.

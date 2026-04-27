@@ -237,9 +237,9 @@ def chunks_command(args):
         print(f"\nChunked Drift Detection Results")
         print("=" * 60)
         for r in results:
-            status_icon = "🔴" if r["drift_detected"] else "🟢"
+            status_icon = "[DRIFT]" if r["drift_detected"] else "[OK]"
             if r["status"] in ("NEW", "DELETED"):
-                status_icon = "🟡"
+                status_icon = "[CHG]"
             print(f"{status_icon} [{r['status']}] {r['section'][:50]}")
             if r["status"] not in ("NEW", "DELETED"):
                 print(f"    p={r['p_value']:.4f}, severity={r['severity']:.4f}")

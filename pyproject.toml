@@ -7,7 +7,7 @@ name = "legaldrift"
 version = "0.1.0"
 description = "Statistical monitoring for legal document revision — detect semantic drift in contracts and policies"
 readme = "README.md"
-license = {text = "MIT"}
+license = {file = "LICENSE"}
 requires-python = ">=3.8"
 authors = [
     {name = "OsamaMoftah"}

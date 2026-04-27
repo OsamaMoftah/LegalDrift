@@ -1,8 +1,8 @@
 # LegalDrift
 
 [![CI](https://github.com/OsamaMoftah/LegalDrift/actions/workflows/ci.yml/badge.svg)](https://github.com/OsamaMoftah/LegalDrift/actions/workflows/ci.yml)
-[![PyPI](https://img.shields.io/pypi/v/legaldrift.svg)](https://pypi.org/project/legaldrift/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/legaldrift.svg)](https://pypi.org/project/legaldrift/)
+[![PyPI](https://img.shields.io/pypi/v/legaldrift.svg?v=0.1.0)](https://pypi.org/project/legaldrift/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/legaldrift.svg?v=0.1.0)](https://pypi.org/project/legaldrift/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 

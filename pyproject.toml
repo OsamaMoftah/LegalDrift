@@ -5,10 +5,39 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "legaldrift"
 version = "0.1.0"
-description = "Legal Document Drift Detection System"
+description = "Statistical monitoring for legal document revision — detect semantic drift in contracts and policies"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.8"
+authors = [
+    {name = "OsamaMoftah"}
+]
+keywords = [
+    "legal",
+    "contracts",
+    "nlp",
+    "drift-detection",
+    "compliance",
+    "legal-tech",
+    "bert",
+    "statistical-testing",
+    "document-analysis",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Legal Industry",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Office/Business :: Legal",
+]
 dependencies = [
     "numpy>=1.21.0",
     "pandas>=1.3.0",
@@ -24,6 +53,13 @@ demo = ["streamlit>=1.0.0"]
 
 [project.scripts]
 legaldrift = "legaldrift.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/OsamaMoftah/LegalDrift"
+Documentation = "https://github.com/OsamaMoftah/LegalDrift/blob/main/README.md"
+Repository = "https://github.com/OsamaMoftah/LegalDrift.git"
+Issues = "https://github.com/OsamaMoftah/LegalDrift/issues"
+Changelog = "https://github.com/OsamaMoftah/LegalDrift/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]
